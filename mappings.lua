@@ -11,7 +11,10 @@ return {
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
     ["<leader>bD"] = {
       function()
-        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr) require("astronvim.utils.buffer").close(bufnr) end)
+        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr)
+          require("astronvim.utils.buffer").close(
+            bufnr)
+        end)
       end,
       desc = "Pick to close",
     },
@@ -19,10 +22,18 @@ return {
     -- this is useful for naming menus
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
-    -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    ["<C-s>"] = { ":w!<cr>", desc = "Save File" }, -- change description but the same command
+    ["<C-d>"] = { "<C-d>zz", desc = "Half a screen down" },
+    ["<C-u>"] = { "<C-u>zz", desc = "Half a screen up" },
   },
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
   },
+  v = {
+    ["<leader>y"] = { '"+y', desc = "Copy to clipboard" },
+    ["<leader>Y"] = { 'gg"+yG', desc = "Copy file to clipboard" },
+    ["<C-j>"] = { ":m '>+1<cr>gv=gv", desc = 'Move down' },
+    ["<C-k>"] = { ":m '<-2<cr>gv=gv", desc = 'Move up' }
+  }
 }
