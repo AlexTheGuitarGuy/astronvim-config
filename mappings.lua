@@ -18,6 +18,21 @@ return {
       end,
       desc = "Pick to close",
     },
+    --[[ ["<leader>bh"] = { "<cmd>tabPrevious<cr>", desc = "Left tab" },
+    ["<leader>bl"] = { "<cmd>tabNext<cr>", desc = "Right tab" },
+    ["<leader>bH"] = {
+      function()
+        require("astronvim.utils.buffer").close_all_to_left()
+      end,
+      desc = "Close all to the left",
+    },
+    ["<leader>bL"] = {
+      function()
+        require("astronvim.utils.buffer").close_all_to_right()
+      end,
+      desc = "Close all to the right",
+    }, ]]
+
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     ["<leader>b"] = { name = "Buffers" },
